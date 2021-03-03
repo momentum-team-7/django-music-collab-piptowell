@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+
 class User(AbstractUser):
     pass
 
@@ -10,6 +11,7 @@ class Album(models.Model):
     artist = models.CharField(max_length=280)
     release_date = models.IntegerField(blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, related_name="albums")
+    photo = models.ImageField(upload_to='media')
 
     def __str__(self):
         return self.title
@@ -17,6 +19,7 @@ class Album(models.Model):
 
 class Artist(models.Model):
     artist = models.CharField(max_length=280)
+    label = models.CharField(max_length=200)
     album = models.ForeignKey(Album, on_delete=models.CASCADE, blank=True, null=True, related_name="artists")
 
     def __str__(self):
