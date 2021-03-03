@@ -4,7 +4,7 @@
 
     {% for album in albums %}
         <a href="{% url 'album-detail' album.pk %}">{{album}}</a>
-        <img src="{{media.photo}}">
+        <img src="{{album.photo.url}}">
     {% endfor %}
 
     {% endblock content %}

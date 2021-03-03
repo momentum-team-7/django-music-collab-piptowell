@@ -11,7 +11,7 @@ class Album(models.Model):
     artist = models.CharField(max_length=280)
     release_date = models.IntegerField(blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, related_name="albums")
-    photo = models.ImageField(upload_to='media')
+    photo = models.ImageField(upload_to='images/', blank=True, null=True)
 
     def __str__(self):
         return self.title
