@@ -5,6 +5,7 @@
     {% for album in albums %}
         <a href="{% url 'album-detail' album.pk %}">{{album}}</a>
         <img src="{{album.photo.url}}">
+        <a href="{% url 'delete-album' pk=album.pk %}">Delete Album</a>
     {% endfor %}
 
     {% endblock content %}

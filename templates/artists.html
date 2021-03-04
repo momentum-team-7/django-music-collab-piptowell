@@ -3,7 +3,10 @@
     {% block content %}
 
     {% for artist in artists %}
+    
     <a href="{% url 'artist-detail' artist.pk %}">{{artist}}</a>
-        {% endfor %}
+    <a href="{% url 'delete-artist' pk=artist.pk %}">Delete Artist</a>
+    
+    {% endfor %}
     
         {% endblock content %}
